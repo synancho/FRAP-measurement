@@ -44,10 +44,20 @@ roiManager("Open", fileDir + "ProjectorROIs.zip"); //Add the projector ROI
 stat = true;
 
 while (stat==true) {
+
+	measureFRAP(imageName);
+
+	Dialog.create("FRAP data measurement");
+	Dialog.addMessage("Want to measure another ROI? Click cancel if the measurement is done for the image");
+	Dialog.show();
+
+}
+
+function measureFRAP(imageName){
 	selectWindow(imageName);
 	waitForUser("Choose the ROI to analyze!");
-	//run("Enlarge...", "enlarge=10 pixel"); //Enlarge the projector ROI by 10 pixels
-	//run("Fit Circle"); //Make a fit circle ROI
+	run("Enlarge...", "enlarge=10 pixel"); //Enlarge the projector ROI by 10 pixels
+	run("Fit Circle"); //Make a fit circle ROI
 
 	selectWindow(imageName);
 	run("Plot Z-axis Profile"); //Plotting
@@ -60,11 +70,4 @@ while (stat==true) {
 
 	selectWindow(plotWindow);
 	close();
-
-	Dialog.create("FRAP data measurement");
-	Dialog.addMessage("Want to measure another ROI? Click cancel if the measurement is done for the image");
-	Dialog.show();
-
 }
-
-
