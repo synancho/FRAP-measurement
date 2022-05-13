@@ -4,6 +4,9 @@
 //Created on 2021-08-06, tested on 2021-08-06
 //Contact SoYeon Kim for questions: soyeon.kim@ucsf.edu
 
+//Setting up the variables
+enlargeROIpx = 10;
+
 //Clean-up the space
 print("\\Clear");
 run("Close All");
@@ -56,7 +59,7 @@ while (stat==true) {
 function measureFRAP(imageName){
 	selectWindow(imageName);
 	waitForUser("Choose the ROI to analyze!");
-	run("Enlarge...", "enlarge=10 pixel"); //Enlarge the projector ROI by 10 pixels
+	run("Enlarge...", "enlarge=" + enlargeROIpx + " pixel"); //Enlarge the projector ROI by 10 pixels
 	run("Fit Circle"); //Make a fit circle ROI
 
 	selectWindow(imageName);
