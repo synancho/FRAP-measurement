@@ -1,4 +1,4 @@
-# FRAP 
+# FRAP measurement
 
 This is FIJI/ImageJ macro for FRAP analysis on the images acquired by Micro-Manager.
 
